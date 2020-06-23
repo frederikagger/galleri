@@ -1,24 +1,3 @@
 # galleri
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![alt text](https://firebasestorage.googleapis.com/v0/b/gallerypicforgithub.appspot.com/o/Gallery.JPG?alt=media&token=2d257656-1998-4c38-9a65-ed9f14ae7c10)
