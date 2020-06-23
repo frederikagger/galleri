@@ -1,7 +1,7 @@
 <template>
     <nav id="top" class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav mr-auto nav nav-pills">
-            <router-link to="/hjem/1"
+            <router-link to="/hjem/"
                          class="nav-link"
                          v-bind:active-class="classActive">Home
             </router-link>

@@ -26,7 +26,7 @@
         },
         watch: {
             '$route'(to){
-                this.currentPage = to.params.id;
+                this.currentPage = parseInt(to.params.id);
             }
         },
         data() {
