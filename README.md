@@ -1,3 +1,7 @@
 # galleri
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/gallerypicforgithub.appspot.com/o/Gallery.JPG?alt=media&token=2d257656-1998-4c38-9a65-ed9f14ae7c10)
+This purpose with this project is to make a nice gallery with vue
+so people can view paintings in a nice modern way. 
+
+![alt text](page1.PNG)
+
