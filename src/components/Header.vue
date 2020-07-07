@@ -18,7 +18,7 @@
     export default {
         data() {
             return {
-                classActive: 'bg-secondary text-white'
+                classActive: 'bg-primary text-white'
             }
         }
     }
