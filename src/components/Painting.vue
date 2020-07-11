@@ -5,7 +5,9 @@
                 {{painting.id}} <small> Pris: {{painting.price}} </small>
             </h4>
             <div class="card-body">
-                <img :src="painting.url" class="img-fluid" v-on:click="showImg">
+                <a v-bind:href="painting.url">
+                    <img :src="painting.url" class="img-fluid"  v-on:click="showImg">
+                </a>
                 <p> {{painting.description}}</p>
             </div>
         </div>
@@ -15,14 +17,9 @@
 <script>
     export default {
         props: ['painting'],
-        data() {
-            return {
-                imgShow: false
-            }
-        },
         methods: {
             showImg() {
-                this.imgShow = !this.imgShow;
+                this.$emit('imageClicked', this.painting.url)
             }
         }
     }
@@ -32,18 +29,27 @@
     .card {
         border: 1px  black;
         box-shadow: 1px 1px 5px black;
+        transition: 0.6s;
     }
     #card{
         padding: 20px;
     }
 
-    img:hover{
+    .card:hover{
+        transform: scale(1.25);
+        z-index: 100;
         cursor: pointer;
+    }
+
+    img:hover{
+        transform: scale3d(1.1, 1.1, 1.1);
     }
 
     img{
         width: 300px;
-        height: 300px
+        height: 300px;
+        position: relative;
+        transition: 0.5s;
     }
 
 
