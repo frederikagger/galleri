@@ -6,7 +6,7 @@
             </h4>
             <div class="card-body">
                 <a v-bind:href="painting.url">
-                    <img :src="painting.url" class="img-fluid"  v-on:click="showImg">
+                    <img :src="painting.url" class="img-fluid">
                 </a>
                 <p> {{painting.description}}</p>
             </div>
@@ -17,11 +17,6 @@
 <script>
     export default {
         props: ['painting'],
-        methods: {
-            showImg() {
-                this.$emit('imageClicked', this.painting.url)
-            }
-        }
     }
 </script>
 
