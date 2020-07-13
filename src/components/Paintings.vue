@@ -1,13 +1,13 @@
 <template>
     <div class="row">
         <app-painting v-for="painting in visiblePaintings" :key="painting.id" :painting="painting"/>
-        <app-pagination :current-page="currentPage" :number-of-pages="paginatedPainting"/>
+        <app-pagination :current-page="currentPage" :number-of-pages="pages"/>
     </div>
 </template>
 
 <script>
-    import Painting from "@/components/Painting";
-    import Pagination from "@/components/Pagination";
+    import Painting from "./Painting";
+    import Pagination from "./Pagination";
 
     export default {
         components: {
@@ -16,7 +16,7 @@
 
         },
         computed: {
-            paginatedPainting() {
+            pages() {
                 return Math.ceil(this.paintings.length / this.pageSize);
             },
             visiblePaintings() {
@@ -31,7 +31,7 @@
         },
         data() {
             return {
-                currentPage: 1,
+                currentPage: parseInt(this.$route.params.id),
                 pageSize: 9,
                 paintings: [
                     {
@@ -121,5 +121,7 @@
 </script>
 
 <style scoped>
+
+
 
 </style>
