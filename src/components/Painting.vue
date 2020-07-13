@@ -31,21 +31,15 @@
     }
 
     .card:hover{
-        transform: scale(1.25);
+        transform: scale(1.18);
         z-index: 100;
         cursor: pointer;
-    }
-
-    img:hover{
-        transform: scale3d(1.1, 1.1, 1.1);
     }
 
     img{
         width: 300px;
         height: 300px;
         position: relative;
-        transition: 0.5s;
     }
-
 
 </style>
