@@ -3,7 +3,7 @@ import Paintings from "@/components/Paintings";
 
 
 export const routes =[
-    {path: '/hjem/:id', component: Paintings},
+    {path: '/galleri/:id', component: Paintings},
     {path: '/om', component: Om},
-    {path: '*', redirect: 'hjem/1'}
+    {path: '*', redirect: '/galleri/1'}
 ]

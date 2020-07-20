@@ -7,12 +7,20 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 
+Vue.filter('currency', (value) => {
+  return value.toLocaleString() + ' kr.';
+});
 
 const router = new VueRouter({
   mode: 'history',
   routes,
-  scrollBehavior(){
-    return {x:0, y:0}
+  scrollBehavior(to, from, savedPosition){
+    if (savedPosition){
+      return savedPosition;
+    } else {
+          return {x:0, y:0}
+
+    }
   }
 })
 

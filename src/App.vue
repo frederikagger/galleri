@@ -1,11 +1,13 @@
 <template>
-    <div class="container">
-        <app-header></app-header>
-        <div class="row">
-            <div class="col-md-12">
-                <transition name="bounceLeft" style="animation-duration: 0.2s" mode="out-in">
-                    <router-view/>
-                </transition>
+    <div class="app">
+        <app-header/>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <transition name="bounceLeft" style="animation-duration: 0.2s" mode="out-in">
+                        <router-view/>
+                    </transition>
+                </div>
             </div>
         </div>
         <app-footer/>
@@ -25,9 +27,7 @@
 </script>
 
 <style>
-    body{
-        padding: 20px;
+    .app{
+        font-family: 'Playfair Display', serif;
     }
-
-
 </style>

@@ -1,14 +1,19 @@
 <template>
-    <div id="card" class="col-sm-6 col-md-4">
+    <div id="card" class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
         <div class="card">
             <h4 class="card-header">
-                {{painting.id}} <small> Pris: {{painting.price}} </small>
+                <small> {{painting.description}} </small>
             </h4>
             <div class="card-body">
                 <a v-bind:href="painting.url">
                     <img :src="painting.url" class="img-fluid">
                 </a>
-                <p> {{painting.description}}</p>
+                <hr>
+                <div class="navbar justify-content-between">
+                    <p id="pris" class="navbar-text">Pris: {{painting.price | currency}}</p>
+                    <p id="status" class="navbar-text">{{painting.status}}</p>
+                </div>
+                <hr>
             </div>
         </div>
     </div>
@@ -22,23 +27,28 @@
 
 <style scoped>
     .card {
-        border: 1px  black;
+        border: 1px black;
         box-shadow: 1px 1px 5px black;
-        transition: 0.6s;
+        transition: 0.5s;
+        text-align: center;
     }
-    #card{
+
+    #card {
         padding: 20px;
     }
 
-    .card:hover{
-        transform: scale(1.18);
-        z-index: 100;
-        cursor: pointer;
+    #pris {
+        text-align: left;
     }
 
-    img{
-        width: 300px;
-        height: 300px;
+    #status {
+        color: red;
+        text-align: right;
+    }
+
+    img {
+        width: 325px;
+        height: 320px;
         position: relative;
     }
 

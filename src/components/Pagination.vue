@@ -3,15 +3,15 @@
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
-                    <router-link :to="'/hjem/'+previousPage" v-if="currentPage != 1" class="page-link">Previous</router-link>
+                    <router-link :to="'/galleri/'+previousPage" v-if="currentPage != 1" class="page-link">Previous</router-link>
                 </li>
-                <router-link :to="'/hjem/'+index"
+                <router-link :to="'/galleri/'+index"
                              v-for="index in numberOfPages"
                              :key="index"
                              active-class="active"
                              class="page-item"><a class="page-link">{{index}}</a></router-link>
                 <li class="page-item">
-                    <router-link :to="'/hjem/'+nextPage" v-if="currentPage != numberOfPages" class="page-link">Next</router-link>
+                    <router-link :to="'/galleri/'+nextPage" v-if="currentPage != numberOfPages" class="page-link">Next</router-link>
                 </li>
             </ul>
         </nav>
