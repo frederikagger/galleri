@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <app-header/>
-        <div class="container">
+        <div class="container my-5">
             <div class="row">
                 <div class="col-md-12">
                     <transition name="bounceLeft" style="animation-duration: 0.2s" mode="out-in">
@@ -15,14 +15,14 @@
 </template>
 
 <script>
-    import Header from "@/components/Header";
     import Footer from "@/components/Footer";
+    import Header from "./components/Header";
 
     export default {
         components: {
             appHeader: Header,
-            appFooter: Footer
-        }
+            appFooter: Footer,
+        },
     }
 </script>
 
@@ -30,4 +30,5 @@
     .app{
         font-family: 'Playfair Display', serif;
     }
+
 </style>

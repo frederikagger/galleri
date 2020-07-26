@@ -1,17 +1,14 @@
 <template>
     <div id="card" class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
         <div class="card">
-            <h4 class="card-header">
-                <small> {{painting.description}} </small>
-            </h4>
             <div class="card-body">
                 <a v-bind:href="painting.url">
                     <img :src="painting.url" class="img-fluid">
                 </a>
                 <hr>
                 <div class="navbar justify-content-between">
-                    <p id="pris" class="navbar-text">Pris: {{painting.price | currency}}</p>
-                    <p id="status" class="navbar-text">{{painting.status}}</p>
+                    <p id="pris" class="navbar-text">Mål: {{painting.mål}}</p>
+                    <p id="status" class="navbar-text">{{painting.solgt}}</p>
                 </div>
                 <hr>
             </div>
@@ -50,6 +47,7 @@
         width: 325px;
         height: 320px;
         position: relative;
+        place-items: center;
     }
 
 </style>
