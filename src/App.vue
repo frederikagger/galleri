@@ -23,6 +23,11 @@
             appHeader: Header,
             appFooter: Footer,
         },
+        data(){
+            return {
+                paintings: []
+            }
+        }
     }
 </script>
 
