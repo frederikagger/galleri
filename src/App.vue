@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <transition name="bounceLeft" style="animation-duration: 0.2s" mode="out-in">
-                        <router-view/>
+                        <router-view :paintings="this.paintings"/>
                     </transition>
                 </div>
             </div>
@@ -17,6 +17,7 @@
 <script>
     import Footer from "@/components/Footer";
     import Header from "./components/Header";
+    import {paintingsRef} from "./firebase";
 
     export default {
         components: {
@@ -27,6 +28,9 @@
             return {
                 paintings: []
             }
+        },
+        firebase: {
+            paintings: paintingsRef.child('paintings')
         }
     }
 </script>
