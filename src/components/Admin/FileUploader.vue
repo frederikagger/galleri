@@ -32,8 +32,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
-    import project from "../../firebase";
+    import {paintingsRef} from "../../firebase";
 
     export default {
         methods: {
@@ -41,30 +40,7 @@
                 this.selectedFile = event.target.files[0];
             },
             upload() {
-                if (this.selectedFile!=null && this.mål!='' && this.solgt!='') {
-                    let storageRef = project.storage().ref('paintings/' + this.selectedFile.name);
-                    let task = storageRef.put(this.selectedFile);
-                    task.then(res => {
-                        this.success = (res.state === 'success');
-                        res.ref.getDownloadURL().then(url => {
-                            this.url = url;
-                            this.post(); // send a post request after getting the downloadURL asynch
-                        })
-                    });
-                }
-            }
-            ,
-            post() {
-                let painting = {
-                    mål: this.mål,
-                    solgt: this.solgt,
-                    url: this.url
-                }
-                axios.post('https://gerdagger-72890.firebaseio.com/paintings.json', painting).then(res => console.log(res)).catch(error => console.log(error));
-                let form = document.getElementById("form");
-                form.reset();
-                this.mål = '';
-                this.solgt = '';
+                paintingsRef.child("paintings").push({url: this.selectedFile, mål: this.mål, solgt: this.solgt})
             }
         },
         data() {
