@@ -1,4 +1,8 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
+import 'firebase/database';
+import 'firebase/storage';
+import 'firebase/analytics';
+import 'firebase/firestore'
 
 let firebaseConfig = {
     apiKey: "AIzaSyDw4WSi-LuwDyiGCc_qJvL9wCzOQgW78FI",
@@ -11,7 +15,7 @@ let firebaseConfig = {
     measurementId: "G-KFGKW2MRRT"
 };
 // Initialize Firebase
-let project = firebase.initializeApp(firebaseConfig);
+export const project = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-export default project
+export const paintingsRef = project.database().ref();
