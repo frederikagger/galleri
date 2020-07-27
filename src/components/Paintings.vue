@@ -6,25 +6,19 @@
 </template>
 
 <script>
-    import Painting from "./Painting";
+    import Painting from "./Painting1";
     import Pagination from "./Pagination";
-    import axios from "axios";
 
     export default {
+        props: {
+          paintings: {
+              required: true,
+              type: Array
+          }
+        },
         components: {
             appPainting: Painting,
             appPagination: Pagination,
-        },
-        created() {
-            axios.get('https://gerdagger-72890.firebaseio.com/paintings.json')
-                .then(res => {
-                    const data = res.data;
-                    for (let key in data) {
-                        const painting = data[key];
-                        this.paintings.push(painting);
-                    }
-                })
-                .catch(error => console.log(error));
         },
         computed: {
             pages() {
@@ -44,7 +38,6 @@
             return {
                 currentPage: parseInt(this.$route.params.id),
                 pageSize: 9,
-                paintings: []
             }
         }
     }
