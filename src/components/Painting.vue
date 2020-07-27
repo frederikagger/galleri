@@ -1,6 +1,6 @@
 <template>
     <div id="card" class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-        <div class="card">
+        <div class="card" :class="{solgt: painting.solgt=='true', tilSalg: painting.solgt=='false'}">
             <div class="card-body">
                 <a v-bind:href="painting.url">
                     <img :src="painting.url" class="img-fluid">
@@ -26,26 +26,34 @@
     .card {
         border: 1px black;
         box-shadow: 1px 1px 5px black;
-        transition: 0.5s;
         text-align: center;
     }
 
     #card {
-        padding: 20px;
+        padding: 30px;
     }
 
     #pris {
         text-align: left;
     }
 
+    .solgt{
+        border: 1px red solid;
+        box-shadow: 1px 1px 5px red;
+    }
+
+    .tilSalg{
+        border: 1px green solid;
+        box-shadow: 1px 1px 5px green;
+    }
+
     #status {
-        color: red;
         text-align: right;
     }
 
     img {
-        width: 325px;
-        height: 320px;
+        width: auto;
+        height: auto;
         position: relative;
         place-items: center;
     }
