@@ -2,13 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import {routes} from '@/routes';
-import {BootstrapVue, BootstrapVueIcons} from "bootstrap-vue";
+import {BootstrapVue} from "bootstrap-vue";
+import { rtdbPlugin } from 'vuefire'
+import {IconsPlugin} from "bootstrap-vue";
 
 Vue.config.productionTip = false
 
+Vue.use(rtdbPlugin)
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons)
+Vue.use(IconsPlugin)
 
 Vue.filter('currency', (value) => {
     return value.toLocaleString() + ' kr.';
