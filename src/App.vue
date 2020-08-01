@@ -4,7 +4,7 @@
         <div class="container my-5">
             <div class="row">
                 <div class="col-md-12">
-                    <transition name="bounceLeft" style="animation-duration: 0.2s" mode="out-in">
+                    <transition name="bounceLeft" style="animation-duration: 0.100ms" mode="out-in">
                         <router-view :paintings="this.paintings"/>
                     </transition>
                 </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import Footer from "@/components/Footer";
+    import Footer from "./components/Footer";
     import Header from "./components/Header";
     import {paintingsRef} from "./firebase";
 
@@ -24,7 +24,7 @@
             appHeader: Header,
             appFooter: Footer,
         },
-        data(){
+        data() {
             return {
                 paintings: []
             }
@@ -36,7 +36,7 @@
 </script>
 
 <style>
-    .app{
+    .app {
         font-family: 'Playfair Display', serif;
     }
 
