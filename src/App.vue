@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <transition name="bounceLeft" style="animation-duration: 0.100ms" mode="out-in">
-                        <router-view :paintings="this.paintings"/>
+                        <router-view :paintings="this.resizedPaintings"/>
                     </transition>
                 </div>
             </div>
@@ -26,18 +26,79 @@
         },
         data() {
             return {
-                paintings: []
+                paintings: [],
+                resizedPaintings: []
             }
         },
         firebase: {
-            paintings: paintingsRef.child('paintings')
+            paintings: paintingsRef.child('paintings'),
+            resizedPaintings: paintingsRef.child('resized')
         }
     }
 </script>
 
 <style>
+
     .app {
+        padding-top: 20px;
+        font-family: Calibri;
+        font-size: 18px;
+        color: black;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .app{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2Fbackground.webp?alt=media&token=dd82e3f0-5f41-4e01-a077-d30de2679842");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: left bottom;
+        }
+    }
+
+
+    @media screen and (min-width: 481px) and (max-width: 1023px) {
+        .app {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2Fbackground.webp?alt=media&token=dd82e3f0-5f41-4e01-a077-d30de2679842");
+            background-size: cover;
+            background-position: bottom left;
+        }
+    }
+
+    @media screen and (max-width: 481px) {
+        .app {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2FWebp.net-resizeimage%20(1).jpg?alt=media&token=edacdc01-1ecf-4ee6-9514-04e2f1b6cc4e");
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-attachment: scroll;
+
+            /* Preserve aspect ratio */
+            min-width: 100%;
+            min-height: 100%;
+        }
+    }
+
+    /* class to apply to headers */
+    .headers {
         font-family: 'Playfair Display', serif;
+        text-align: center;
+    }
+
+    form {
+        border: solid 1px black;
+        box-shadow: 1px 1px 5px black;
+        padding: 50px;
+        text-align: start;
+        width: 400px;
+        min-width: 300px;
+        background-color: white;
+        color: black;
+    }
+
+
+    /* makes all navbar links white */
+    .navbar-dark .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 255);
     }
 
 </style>

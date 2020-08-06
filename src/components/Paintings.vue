@@ -1,20 +1,23 @@
 <template>
-    <div class="row">
-        <app-painting v-for="painting in visiblePaintings" :key="painting.url" :painting="painting"/>
-        <app-pagination :current-page="currentPage" :number-of-pages="pages"/>
+    <div>
+        <div class="row">
+            <app-painting v-for="painting in visiblePaintings" :key="painting.url" :painting="painting"/>
+            <app-pagination :current-page="currentPage" :number-of-pages="pages"/>
+        </div>
     </div>
+
 </template>
 
 <script>
-    import Painting from "./Painting1";
+    import Painting from "./Painting";
     import Pagination from "./Pagination";
 
     export default {
         props: {
-          paintings: {
-              required: true,
-              type: Array
-          }
+            paintings: {
+                required: true,
+                type: Array
+            }
         },
         components: {
             appPainting: Painting,
@@ -44,6 +47,5 @@
 </script>
 
 <style scoped>
-
 
 </style>

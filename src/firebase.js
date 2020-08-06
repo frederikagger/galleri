@@ -2,7 +2,9 @@ import firebase from "firebase/app";
 import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/analytics';
-import 'firebase/firestore'
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/performance';
 
 let firebaseConfig = {
     apiKey: "AIzaSyDw4WSi-LuwDyiGCc_qJvL9wCzOQgW78FI",
@@ -14,8 +16,13 @@ let firebaseConfig = {
     appId: "1:854835282956:web:a60d6efd0f1942d77b5a29",
     measurementId: "G-KFGKW2MRRT"
 };
+
+
 // Initialize Firebase
 export const project = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+firebase.performance();
 
 export const paintingsRef = project.database().ref();
+
+export const auth = project.auth();

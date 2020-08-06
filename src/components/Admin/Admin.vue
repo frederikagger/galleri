@@ -1,16 +1,18 @@
 <template>
-    <div class="container">
-        <b-nav pills class="justify-content-center">
-            <b-nav-item class="btn btn-outline-primary" exact-active-class="active" :to="{name: 'upload'}">
-                Upload
-            </b-nav-item>
-            <b-nav-item class="btn btn-outline-primary" exact-active-class="active btn" :to="{name: 'delete'}">
-                Slet
-            </b-nav-item>
-            <b-nav-item class="btn btn-outline-danger" v-if="loggedIn" @click="showbox" exact-active-class="active btn">
-                Logout
-            </b-nav-item>
-        </b-nav>
+    <div>
+        <b-navbar type="dark" class="container justify-content-center mb-5">
+            <b-navbar-nav justified>
+                <b-nav-item class="mx-md-5 btn-lg btn-outline-primary" exact-active-class="active" :to="{name: 'Upload'}">
+                    Upload
+                </b-nav-item>
+                <b-nav-item class="mx-md-5 btn-outline-primary btn-lg" exact-active-class="active" :to="{name: 'Slet'}">
+                    Slet
+                </b-nav-item>
+                <b-nav-item class="mx-md-5 btn-lg btn-outline-danger" v-if="loggedIn" @click="showbox" exact-active-class="active">
+                    Logout
+                </b-nav-item>
+            </b-navbar-nav>
+        </b-navbar>
         <transition name="bounceRight" style="animation-duration: 0.1ms" mode="out-in">
             <router-view :paintings="paintings"/>
         </transition>
@@ -39,7 +41,7 @@
                         if (value) {
                             this.$store.dispatch('logout');
                             auth.signOut();
-                            this.$router.replace({name:'login'});
+                            this.$router.replace({name:'Login'});
                         }
                     })
                     .catch(err => {

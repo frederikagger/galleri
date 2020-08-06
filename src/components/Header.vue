@@ -1,39 +1,69 @@
 <template>
-    <div class="header">
-        <b-navbar toggleable="sm" fixed="top" type="dark" variant="dark">
-            <b-navbar-brand>
-                GERD AGGER
-                <img src="../assets/logo.svg" alt="logo">
-            </b-navbar-brand>
-            <b-navbar-toggle target="navbar-toggle-collapse">
-                <template v-slot:default="{ expanded }">
-                    <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-                    <b-icon v-else icon="chevron-bar-down"></b-icon>
-                </template>
-            </b-navbar-toggle>
-            <b-collapse id="navbar-toggle-collapse" is-nav>
-                <b-navbar-nav justified type class="ml-auto">
-                    <b-nav-item :active-class="this.classActive" class="text-white" to="/galleri/">Galleri</b-nav-item>
-                    <b-nav-item exact :active-class="this.classActive" class="text-white" to="/om">Om</b-nav-item>
-                </b-navbar-nav>
-            </b-collapse>
-        </b-navbar>
+    <div>
+        <div class="container">
+            <b-navbar class="headers my-md-3" toggleable="sm" sticky type="dark">
+                <b-navbar-brand>
+                    GERD AGGER
+                    <img src="https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2Flogo.svg?alt=media&token=16fd0dd3-d88c-4e51-b8ec-50f9f9ae9289"
+                         alt="logo">
+                </b-navbar-brand>
+                <b-navbar-toggle target="navbar-toggle-collapse">
+                    <template v-slot:default="{ expanded }">
+                        <b-icon-chevron-bar-up v-if="expanded"></b-icon-chevron-bar-up>
+                        <b-icon-chevron-bar-down v-else></b-icon-chevron-bar-down>
+                    </template>
+                </b-navbar-toggle>
+                <b-collapse id="navbar-toggle-collapse" is-nav>
+                    <b-navbar-nav class="mx-sm-auto">
+                        <b-nav-item exact-active-class="active link" :to="{name: 'Galleri', params: {id: 1}}">Galleri
+                        </b-nav-item>
+                        <b-nav-item exact-active-class="active link" :to="{name: 'Om'}">Om mig</b-nav-item>
+                    </b-navbar-nav>
+                    <b-navbar-nav class="ml-md-5">
+                        <b-nav-item class="mx-sm-auto" exact-active-class="active link" :to="{name: 'Kontakt'}">
+                            Kontakt
+                        </b-nav-item>
+                    </b-navbar-nav>
+                </b-collapse>
+            </b-navbar>
+        </div>
+        <h1> {{this.$route.name}} </h1>
     </div>
+
 </template>
 
 <script>
     export default {
-        data() {
-            return {
-                classActive: 'bg-primary btn text-white'
+        computed: {
+            loggedIn() {
+                return this.$store.getters.loggedIn;
             }
         }
     }
 </script>
 
 <style scoped>
-    img{
+    img {
         height: 30px;
         width: 30px;
     }
+
+    @media only screen and (max-width: 767px) {
+        body {
+            background-color: green;
+            font-size: 60px;
+        }
+    }
+
+    .link {
+        place-items: center;
+        border-bottom: 1px solid white;
+    }
+
+    h1 {
+        font-size: 110px;
+        color: white;
+        text-align: center;
+    }
+
 </style>

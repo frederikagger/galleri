@@ -1,9 +1,17 @@
 <template>
     <div>
-        <nav class="nav justify-content-center bg-dark">
-            <a class="nav-link btn btn-sm btn-secondary" href="#">Kontakt</a>
-            <router-link to="/admin/upload" class="btn btn-secondary btn-sm nav-link">Admin</router-link>
-        </nav>
+        <b-navbar type="dark" class="justify-content-center" variant="dark">
+            <b-navbar-nav>
+                <b-nav-text class="text-white my-2">
+                    © 2020 FA.
+                </b-nav-text>
+            </b-navbar-nav>
+            <b-navbar-nav class="ml-5">
+                <b-nav-item :to="{name: 'Login'}" exact-active-class="active">
+                    Admin
+                </b-nav-item>
+            </b-navbar-nav>
+        </b-navbar>
     </div>
 </template>
 
@@ -16,8 +24,5 @@
 <style scoped>
     div {
         padding-top: 5%;
-    }
-    nav {
-        padding: 10px;
     }
 </style>
