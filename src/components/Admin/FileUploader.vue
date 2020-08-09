@@ -1,41 +1,49 @@
 <template>
-    <div class="container">
-        <div class="d-flex flex-row justify-content-center">
-            <form id="form">
-                <h2 class="headers">Upload billed</h2>
-                <div class="form-group">
-                    <input type="file" id="fil"
-                           class="form-control-file" @change="fileSelected">
-                    <br>
-                </div>
-                <div class="form-group">
-                    <label for="mål">Vælg mål</label>
-                    <select class="form-control" :class="{'is-valid': this.mål!=''}" v-model="mål" id="mål">
-                        <option value=""> </option>
-                        <option value="40x40">40x40</option>
-                        <option value="50x50">50x50</option>
-                        <option value="60x60">60x60</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="solgt">Vælg status</label>
-                    <select class="form-control" :class="{'is-valid': this.solgt!=''}" v-model="solgt" id="solgt">
-                        <option value=""> </option>
-                        <option value="true">Solgt</option>
-                        <option value="false">Til salg</option>
-                    </select>
-                </div>
-                <button type="submit" :class="{disabled: this.uploading}" class="btn btn-outline-primary"
-                        @click.prevent="uploadImage">Upload
-                </button>
-            </form>
+  <div class="container">
+    <div class="d-flex flex-row justify-content-center">
+      <form id="form">
+        <h2 class="headers">Upload billed</h2>
+        <div class="form-group">
+          <input type="file" id="fil"
+                 class="form-control-file" @change="fileSelected">
+          <br>
         </div>
+        <div class="form-group">
+          <label for="mål">Vælg mål</label>
+          <select class="form-control" :class="{'is-valid': this.mål!=''}" v-model="mål" id="mål">
+            <option value=""></option>
+            <option value="40x40">40x40</option>
+            <option value="50x50">50x50</option>
+            <option value="60x60">60x60</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="solgt">Vælg status</label>
+          <select class="form-control" :class="{'is-valid': this.solgt!=''}" v-model="solgt" id="solgt">
+            <option value=""></option>
+            <option value="true">Solgt</option>
+            <option value="false">Til salg</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary"
+                @click.prevent="uploadImage">Upload
+        </button>
+        <br>
+        <div v-show="success" class="alert alert-success">
+          {{ success }}
+        </div>
+        <br>
+        <div v-show="error" class="alert alert-danger">
+          {{error}}
+        </div>
+      </form>
     </div>
+  </div>
 </template>
 
 <script>
-    import {paintingsRef} from "../../firebase";
-    import {project} from "../../firebase"
+import {paintingsRef} from '../../firebase';
+import {project} from '../../firebase';
 
     export default {
         methods: {
@@ -44,7 +52,6 @@
             },
             uploadImage() {
                 if (this.selectedFile != null) {
-                    this.uploading = true;
                     let storageRef1 = project.storage();
                     let storageRef = project.storage().ref('paintings/' + this.selectedFile.name);
                     let task = storageRef.put(this.selectedFile);
@@ -55,30 +62,34 @@
                             let path = name + '_320x300' + fileFormat;
                             res.ref.getDownloadURL().then(url => {
                                 this.url = url;
-                                setTimeout(()=> storageRef1.ref('paintings/resized/' + path).getDownloadURL().then(urlResized => {
+                                setTimeout(()=> storageRef1.ref('paintings/resized/' + path).getDownloadURL()
+                                .then(urlResized => {
                                     this.urlResized = urlResized;
                                     this.uploadToDB('paintings/', url)
                                     this.uploadToDB('resized/', urlResized);
-                                }), 3000);
-                            }).catch(error => console.log(error));
+                                }), 2000);
+                            }).catch(error => this.error = error);
                         }
                     )
                 }
+                else {
+                  this.error = 'Vælg venligst en fil'
+                }
             },
             uploadToDB(path, url) {
-                console.log(url);
                 paintingsRef.child(path).push({
                     url: url,
                     mål: this.mål,
                     solgt: this.solgt
                 }).then(() => {
                     this.resetForm();
-                    this.uploading = false;
-                }).catch(error => console.log(error))
+                    this.success = 'Billed uploadet'
+                }).catch(error => this.error = error)
             },
             resetForm() {
                 let form = document.getElementById("form");
                 form.reset();
+                this.error = '';
                 this.solgt = '';
                 this.mål = '';
             }
@@ -88,10 +99,10 @@
                 selectedFile: null,
                 mål: '',
                 success: '',
+                error: '',
                 solgt: '',
                 url: '',
                 urlResized: '',
-                uploading: ''
             }
         }
     }
@@ -102,8 +113,7 @@
         padding-bottom: 30px;
     }
 
-    .container {
-        padding: 80px;
+    .alert {
+      text-align: center  ;
     }
-
 </style>

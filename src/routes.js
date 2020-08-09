@@ -59,6 +59,6 @@ export const routes = [
         ]
     },
      {
-         path: '*', redirect: '/galleri/1'
+         path: '*', redirect: '/'
      }
 ]

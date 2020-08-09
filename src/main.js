@@ -5,13 +5,16 @@ import {routes} from "./routes";
 import {rtdbPlugin} from 'vuefire'
 import {store} from "./store";
 import {BIconChevronBarUp, BIconChevronBarDown, BFormGroup, BFormInput, BFormTextarea, BModal, BCard, BCardText,
-    BNavbar, BNavbarBrand, BNavbarToggle, BCollapse, BNavbarNav, BNavItem, BNavText} from 'bootstrap-vue'
+    BNavbar, BNavbarBrand, BNavbarToggle, BCollapse, BNavbarNav, BNavItem, BNavText, BCardHeader, BNav, BCardBody} from 'bootstrap-vue'
 import { ModalPlugin } from 'bootstrap-vue'
 
 
 Vue.config.productionTip = true
 
 Vue.use(ModalPlugin)
+Vue.component('b-card-body', BCardBody)
+Vue.component('b-nav', BNav)
+Vue.component('b-card-header', BCardHeader)
 Vue.component('b-nav-text', BNavText)
 Vue.component('b-nav-item', BNavItem)
 Vue.component('b-navbar-nav', BNavbarNav)
@@ -37,6 +40,13 @@ Vue.filter('currency', (value) => {
 const router = new VueRouter({
     mode: 'history',
     routes,
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 0 }
+        }
+    }
 });
 
 new Vue({

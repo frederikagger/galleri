@@ -35,7 +35,7 @@
                 this.nextPage = this.currentPage+1;
                 this.previousPage = this.currentPage-1
             }
-        }
+        },
     }
 </script>
 

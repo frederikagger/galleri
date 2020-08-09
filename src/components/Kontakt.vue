@@ -27,6 +27,7 @@
                         max-rows="5"
                 ></b-form-textarea>
             </b-form-group>
+            <button class="btn btn-primary"> Send </button>
         </form>
     </div>
 </template>

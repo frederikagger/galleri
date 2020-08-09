@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <div class="row">
-            <app-painting v-for="painting in visiblePaintings" :key="painting.url" :painting="painting"/>
-            <app-pagination :current-page="currentPage" :number-of-pages="pages"/>
-        </div>
+  <div>
+    <div class="row">
+      <app-painting v-for="painting in visiblePaintings" :key="painting.url" :painting="painting"/>
+      <app-pagination :current-page="currentPage" :number-of-pages="pages"/>
     </div>
+  </div>
 
 </template>
 
 <script>
-    import Painting from "./Painting";
-    import Pagination from "./Pagination";
+import Painting from './Painting';
+import Pagination from './Pagination';
 
     export default {
         props: {
@@ -42,7 +42,7 @@
                 currentPage: parseInt(this.$route.params.id),
                 pageSize: 9,
             }
-        }
+        },
     }
 </script>
 
