@@ -2,11 +2,15 @@
     <div>
         <div class="container">
             <b-navbar class="headers my-md-3" toggleable="sm" sticky type="dark">
+              <b-navbar-nav>
+                <b-nav-item exact-active-class="active link" :to="'/'" >
+                  GERD AGGER
+                </b-nav-item>
                 <b-navbar-brand>
-                    GERD AGGER
-                    <img src="https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2Flogo.svg?alt=media&token=16fd0dd3-d88c-4e51-b8ec-50f9f9ae9289"
-                         alt="logo">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2Flogo.svg?alt=media&token=16fd0dd3-d88c-4e51-b8ec-50f9f9ae9289"
+                       alt="logo">
                 </b-navbar-brand>
+              </b-navbar-nav>
                 <b-navbar-toggle target="navbar-toggle-collapse">
                     <template v-slot:default="{ expanded }">
                         <b-icon-chevron-bar-up v-if="expanded"></b-icon-chevron-bar-up>
@@ -15,7 +19,8 @@
                 </b-navbar-toggle>
                 <b-collapse id="navbar-toggle-collapse" is-nav>
                     <b-navbar-nav class="mx-sm-auto">
-                        <b-nav-item exact-active-class="active link" :to="{name: 'Galleri', params: {id: 1}}">Galleri
+                        <b-nav-item exact-active-class="active link" :to="{name: 'Galleri', params: {id: 1}}">
+                          Galleri
                         </b-nav-item>
                         <b-nav-item exact-active-class="active link" :to="{name: 'Om'}">Om mig</b-nav-item>
                     </b-navbar-nav>
@@ -33,37 +38,30 @@
 </template>
 
 <script>
-    export default {
-        computed: {
-            loggedIn() {
-                return this.$store.getters.loggedIn;
-            }
-        }
-    }
+export default {
+  computed: {
+    loggedIn() {
+      return this.$store.getters.loggedIn;
+    },
+  },
+};
 </script>
 
 <style scoped>
-    img {
-        height: 30px;
-        width: 30px;
-    }
+img {
+  height: 30px;
+  width: 30px;
+}
 
-    @media only screen and (max-width: 767px) {
-        body {
-            background-color: green;
-            font-size: 60px;
-        }
-    }
+.link {
+  place-items: center;
+  border-bottom: 1px solid white;
+}
 
-    .link {
-        place-items: center;
-        border-bottom: 1px solid white;
-    }
-
-    h1 {
-        font-size: 110px;
-        color: white;
-        text-align: center;
-    }
+h1 {
+  font-size: 110px;
+  color: white;
+  text-align: center;
+}
 
 </style>
