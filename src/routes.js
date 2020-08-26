@@ -1,42 +1,41 @@
-import {store} from './store'
+import {store} from './store';
 
 function lazyLoad(component) {
-    return () => import(`@/components/${component}.vue`)
+    return () => import(`@/components/${component}.vue`);
 }
 
 export const routes = [
     {
         path: '',
         component: lazyLoad('Home'),
-        name: ''
+        name: '',
     },
     {
         path: '/galleri/:id',
         component: lazyLoad('Paintings'),
-        name: 'Galleri'
+        name: 'Galleri',
     },
     {
         path: '/om',
         component: lazyLoad('Om'),
-        name: 'Om'
+        name: 'Om',
     },
     {
         path: '/kontakt',
         component: lazyLoad('Kontakt'),
-        name: 'Kontakt'
+        name: 'Kontakt',
     },
     {
         path: '/login',
         component: lazyLoad('Login'),
         name: 'Login',
         beforeEnter: (to, from, next) => {
-            if (store.state.loggedIn){
-                next({name: 'Admin'})
-            }
-            else {
+            if (store.state.loggedIn) {
+                next({name: 'Admin'});
+            } else {
                 next();
             }
-        }
+        },
     },
     {
         path: '/admin',
@@ -51,14 +50,35 @@ export const routes = [
         name: 'Admin',
         children: [
             {
-                path: '/upload', component: lazyLoad('Admin/FileUploader'), name: 'Upload',
+                path: '/upload',
+                component: lazyLoad('Admin/FileUploader'),
+                name: 'Upload',
             },
             {
-                path: '/delete', component: lazyLoad('Admin/Delete'), name: 'Slet'
+                path: '/delete',
+                component: lazyLoad('Admin/Delete'),
+                name: 'Slet',
             },
-        ]
+            {
+                path: '/indbakke',
+                component: lazyLoad('Admin/Indbakke'),
+                name: 'Indbakke',
+                children: [
+                    {
+                        path: '/all',
+                        component: lazyLoad('Admin/IndbakkeOversigt'),
+                        name: 'Alle',
+                    },
+                    {
+                        path: '/:id',
+                        components: lazyLoad('Admin/Message'),
+                        name: 'Besked',
+                    },
+                ],
+            },
+        ],
     },
-     {
-         path: '*', redirect: '/'
-     }
-]
+    {
+        path: '*', redirect: '/',
+    },
+];

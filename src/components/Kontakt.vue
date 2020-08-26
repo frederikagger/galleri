@@ -1,6 +1,6 @@
 <template>
     <div class="container d-flex flex-row justify-content-center">
-        <form>
+        <form class="box">
             <h1 class="headers"> Kontakt mig </h1>
             <br>
             <b-form-group
@@ -13,6 +13,7 @@
                         type="text"
                         required
                         placeholder="Indtast dit navn.."
+                        :class="{'is-valid': this.form.navn!=''}"
                 ></b-form-input>
             </b-form-group>
             <b-form-group id="input-group-2"
@@ -25,26 +26,61 @@
                         placeholder="Besked.."
                         rows="5"
                         max-rows="5"
+                        :class="{'is-valid': this.form.besked!=''}"
                 ></b-form-textarea>
             </b-form-group>
-            <button class="btn btn-primary"> Send </button>
+            <button @click.prevent="sendMessage" class="btn btn-primary"> Send </button>
+            <div v-show="success" class="alert alert-success my-3">
+              {{success}}
+            </div>
+          <div v-show="error" class="alert alert-danger my-3">
+            {{error}}
+          </div>
         </form>
     </div>
 </template>
 
 <script>
+    import {paintingsRef} from '@/firebase';
+
     export default {
         data() {
             return {
                 form: {
                     besked: '',
                     navn: ''
-                }
+                },
+                success: '',
+                error: ''
             }
         },
+      methods: {
+          sendMessage() {
+            if(this.form.navn!='' && this.form.besked!=''){
+              paintingsRef.child('beskeder').push(this.form).then(() => {
+                this.form.besked = '';
+                this.form.navn = '';
+                this.error = '';
+                this.success = 'Din besked er blevet sendt';
+              }).catch(error => {
+                this.success = '';
+                this.error = error;
+
+              })
+            }
+            else {
+              this.success = '';
+              this.error = 'Udfyld venligst felterne';
+            }
+          }
+      }
     }
 </script>
 
 <style scoped>
+  .alert{
+    text-align: center;
+  }
+
 
 </style>

@@ -1,5 +1,5 @@
 import {RouterLinkStub, mount} from '@vue/test-utils';
-import Pagination from './Pagination';
+import Pagination from '../components/Pagination';
 
 let wrapper;
 

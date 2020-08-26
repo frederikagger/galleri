@@ -12,8 +12,7 @@
                 required: true
             }
         },
-        components: {
-        },
+        components: {},
     }
 </script>
 

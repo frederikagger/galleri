@@ -1,5 +1,5 @@
 import {shallowMount} from '@vue/test-utils';
-import Om from './Om';
+import Om from '../components/Om';
 
 describe('Om', () => {
     it('renders a p', () => {

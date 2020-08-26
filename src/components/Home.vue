@@ -1,5 +1,5 @@
 <template>
-    <div class="container my-5">
+    <div class="container my-5 text-white">
         <div class="my-5 sm">
             <br>
             <br><br><br><br><br>
@@ -21,10 +21,6 @@
 </script>
 
 <style scoped>
-    div{
-        color: white;
-    }
-
     h1{
         font-size: 120px;
         font-family: 'Playfair Display', serif;
@@ -35,5 +31,4 @@
             font-size: 100px;
         }
     }
-
 </style>

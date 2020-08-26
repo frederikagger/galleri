@@ -1,6 +1,7 @@
 <template>
   <div class="list-group-item list-group-item-action">
-    {{besked.besked}}
+    <div class="besked"> {{besked.besked}} </div>
+    <div class="navn"> {{besked.navn}} </div>
   </div>
 </template>
 
@@ -15,6 +16,12 @@ export default {
 <style scoped>
 .msg:hover{
   cursor: pointer;
+}
+.besked{
+  float: left;
+}
+.navn{
+  float: right;
 }
 
 </style>
