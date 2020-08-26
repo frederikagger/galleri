@@ -69,6 +69,7 @@
     @media screen and (max-width: 481px) {
         .app {
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2FWebp.net-resizeimage%20(1).jpg?alt=media&token=edacdc01-1ecf-4ee6-9514-04e2f1b6cc4e");
+            background-size: cover;
         }
     }
 
