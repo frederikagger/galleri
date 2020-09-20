@@ -2,15 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import {routes} from "./routes";
-import {rtdbPlugin} from 'vuefire'
 import {store} from "./store";
 import {BIconChevronBarUp, BIconChevronBarDown, BFormGroup, BFormInput, BFormTextarea, BModal, BCard, BCardText,
     BNavbar, BNavbarBrand, BNavbarToggle, BCollapse, BNavbarNav, BNavItem, BNavText, BCardHeader, BNav, BCardBody} from 'bootstrap-vue'
 import { ModalPlugin } from 'bootstrap-vue'
+import VueMeta from 'vue-meta'
 
 
 Vue.config.productionTip = true
-
+Vue.use(VueMeta)
 Vue.use(ModalPlugin)
 Vue.component('b-card-body', BCardBody)
 Vue.component('b-nav', BNav)
@@ -30,7 +30,6 @@ Vue.component("b-form-group", BFormGroup)
 Vue.component("b-form-input", BFormInput)
 Vue.component('b-form-textarea', BFormTextarea)
 Vue.component('b-modal', BModal)
-Vue.use(rtdbPlugin)
 Vue.use(VueRouter)
 
 Vue.filter('currency', (value) => {

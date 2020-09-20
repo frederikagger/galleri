@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <transition name="bounceLeft" style="animation-duration: 0.100ms" mode="out-in">
-                        <router-view :paintings="this.resizedPaintings"/>
+                        <router-view/>
                     </transition>
                 </div>
             </div>
@@ -17,23 +17,15 @@
 <script>
     import Footer from "./components/Footer";
     import Header from "./components/Header";
-    import {paintingsRef} from "./firebase";
 
     export default {
         components: {
             appHeader: Header,
             appFooter: Footer,
         },
-        data() {
-            return {
-                paintings: [],
-                resizedPaintings: []
-            }
+        metaInfo: {
+          title: 'Gerd Agger kunst galleri'
         },
-        firebase: {
-            paintings: paintingsRef.child('paintings'),
-            resizedPaintings: paintingsRef.child('resized')
-        }
     }
 </script>
 

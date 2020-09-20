@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="d-flex flex-row justify-content-center">
-            <form>
+            <form id="form">
                 <h2 class="headers">Upload billed</h2>
                 <div class="form-group">
                     <input type="file" id="fil"
@@ -76,14 +76,19 @@
                 }
             },
             uploadToDB(path, url) {
+                let time = new Date()
                 paintingsRef.child(path).push({
                     url: url,
                     mål: this.mål,
-                    solgt: this.solgt
+                    solgt: this.solgt,
+                    time: time.toString(),
                 }).then(() => {
                     this.resetForm();
                     this.success = 'Billed uploadet'
-                }).catch(error => this.error = error)
+                }).catch(error => {
+                    this.error = error;
+                    console.log(error)
+                })
             },
             resetForm() {
                 let form = document.getElementById("form");

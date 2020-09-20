@@ -1,22 +1,27 @@
 <template>
     <div>
         <div class="row">
-            <app-painting v-for="painting in visiblePaintings" :key="painting.url" :painting="painting"/>
+            <app-painting v-for="painting in paintings" :key="painting.url" :painting="painting"/>
             <app-pagination :current-page="currentPage" :number-of-pages="pages"/>
         </div>
     </div>
-
 </template>
 
 <script>
     import Painting from './Painting';
     import Pagination from './Pagination';
+    import {mapActions} from 'vuex'
 
     export default {
-        props: {
-            paintings: {
-                required: true,
-                type: Array
+        created() {
+            this.get();
+        },
+        methods: {
+            ...mapActions([
+                'savePaintings'
+            ]),
+          addToStore(paintings) {
+                this.$store.dispatch('savePaintings', paintings);
             }
         },
         components: {
@@ -24,12 +29,11 @@
             appPagination: Pagination,
         },
         computed: {
+            paintings() {
+                return this.$store.getters.paintings;
+            },
             pages() {
                 return Math.ceil(this.paintings.length / this.pageSize);
-            },
-            visiblePaintings() {
-                return this.paintings.slice((this.currentPage - 1) * this.pageSize,
-                    ((this.currentPage - 1) * this.pageSize) + this.pageSize);
             },
         },
         watch: {

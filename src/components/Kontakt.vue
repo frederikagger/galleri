@@ -29,20 +29,18 @@
                         :class="{'is-valid': this.form.besked!=''}"
                 ></b-form-textarea>
             </b-form-group>
-            <button @click.prevent="sendMessage" class="btn btn-primary"> Send </button>
+            <button @click.prevent="sendMessage" class="btn btn-primary"> Send</button>
             <div v-show="success" class="alert alert-success my-3">
-              {{success}}
+                {{success}}
             </div>
-          <div v-show="error" class="alert alert-danger my-3">
-            {{error}}
-          </div>
+            <div v-show="error" class="alert alert-danger my-3">
+                {{error}}
+            </div>
         </form>
     </div>
 </template>
 
 <script>
-    import {paintingsRef} from '@/firebase';
-
     export default {
         data() {
             return {
@@ -54,33 +52,18 @@
                 error: ''
             }
         },
-      methods: {
-          sendMessage() {
-            if(this.form.navn!='' && this.form.besked!=''){
-              paintingsRef.child('beskeder').push(this.form).then(() => {
-                this.form.besked = '';
-                this.form.navn = '';
-                this.error = '';
-                this.success = 'Din besked er blevet sendt';
-              }).catch(error => {
-                this.success = '';
-                this.error = error;
-
-              })
-            }
-            else {
-              this.success = '';
-              this.error = 'Udfyld venligst felterne';
-            }
-          }
-      }
+        metaInfo: {
+            title: 'Kontakt'
+        },
+        methods: {
+        }
     }
 </script>
 
 <style scoped>
-  .alert{
-    text-align: center;
-  }
+    .alert {
+        text-align: center;
+    }
 
 
 </style>

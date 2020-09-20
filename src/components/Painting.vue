@@ -35,7 +35,6 @@
     img {
         place-items: center;
         position: relative;
-        place-items: center;
         max-width: 320px;
         max-height: 300px;
     }

@@ -25,4 +25,6 @@ firebase.performance();
 
 export const paintingsRef = project.database().ref();
 
+export const firestore = project.firestore();
+
 export const auth = project.auth();

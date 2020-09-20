@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-warning">
         <nav class="nav nav-pills justify-content-center nav-fill">
             <router-link class="mx-md-2 btn-lg btn-primary" exact-active-class="active" :to="{name: 'Upload'}">
                 Upload
@@ -25,16 +25,13 @@
     import {auth} from '@/firebase';
 
     export default {
-        props: {
-            paintings: {
-                type: Array,
-                required: true,
-            },
-        },
         computed: {
             loggedIn() {
                 return this.$store.getters.loggedIn;
             },
+            paintings() {
+                return this.$store.getters.paintings;
+            }
         },
         methods: {
             showbox() {

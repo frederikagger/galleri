@@ -6,17 +6,24 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         loggedIn: false,
-        token: ''
+        token: '',
+        paintings: []
     },
     getters: {
         loggedIn(state) {
             return state.loggedIn
         },
         token(state) {
-            return state.token;
+            return state.token
+        },
+        paintings(state) {
+            return state.paintings
         }
     },
     mutations: {
+        ADD_PAINTINGS(state, payload) {
+            state.paintings = state.paintings.concat(payload)
+        },
         SET_LOGGED_IN(state) {
             state.loggedIn = true;
         },
@@ -26,7 +33,7 @@ export const store = new Vuex.Store({
         SET_TOKEN(state, value) {
             state.token = value;
         },
-        CLEAR_TOKEN(state){
+        CLEAR_TOKEN(state) {
             state.token = ''
         }
     },
@@ -39,5 +46,8 @@ export const store = new Vuex.Store({
             commit("SET_LOGGED_OUT");
             commit("CLEAR_TOKEN");
         },
+        savePaintings({commit}, paintings) {
+            commit("ADD_PAINTINGS", paintings)
+        }
     }
 });

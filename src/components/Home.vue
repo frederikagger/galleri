@@ -12,11 +12,21 @@
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
         </div>
+      <app-painting v-for="painting in this.paintings" :key="painting.url" :painting="painting"/>
     </div>
 </template>
 
 <script>
+    import Painting from '@/components/Painting';
     export default {
+      components: {
+        appPainting: Painting
+      },
+      computed: {
+        paintings() {
+          return this.$store.getters.paintings;
+        }
+      }
     }
 </script>
 
@@ -25,7 +35,7 @@
         font-size: 120px;
         font-family: 'Playfair Display', serif;
     }
-    
+
     @media only screen and (max-width: 767px) {
         h1{
             font-size: 100px;
