@@ -1,7 +1,7 @@
 <template>
-    <div class="container d-flex flex-row justify-content-center">
+    <div class="mx-auto">
         <div id="form">
-            <h1 class="mb-5 headers"> Login </h1>
+            <h1 class="mb-5 headers">Login</h1>
             <div class="form-group">
                 <b-form-input v-model="email" type="email"
                               placeholder="Indtast email">

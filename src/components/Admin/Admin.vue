@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mx-auto">
         <nav class="nav nav-pills justify-content-center nav-fill">
             <router-link class="mx-md-2 btn-lg btn-primary" exact-active-class="active" :to="{name: 'Upload'}">
                 Upload
@@ -16,7 +16,7 @@
         </nav>
         <br>
         <transition name="bounceRight" style="animation-duration: 0.1ms" mode="out-in">
-            <router-view :paintings="paintings"/>
+            <router-view/>
         </transition>
     </div>
 </template>
@@ -25,12 +25,6 @@
     import {auth} from '@/firebase';
 
     export default {
-        props: {
-            paintings: {
-                type: Array,
-                required: true,
-            },
-        },
         computed: {
             loggedIn() {
                 return this.$store.getters.loggedIn;

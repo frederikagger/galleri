@@ -6,12 +6,6 @@
 <script>
 
     export default {
-        props: {
-            paintings: {
-                type: Array,
-                required: true
-            }
-        },
         components: {},
     }
 </script>

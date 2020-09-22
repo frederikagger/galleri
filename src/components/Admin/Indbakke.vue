@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import {paintingsRef} from '@/firebase';
 import Message from '@/components/Admin/Message';
 
 export default {
@@ -21,9 +20,6 @@ export default {
     return {
       beskeder: [],
     };
-  },
-  firebase: {
-    beskeder: paintingsRef.child('beskeder'),
   },
 };
 

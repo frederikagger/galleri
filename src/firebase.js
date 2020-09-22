@@ -1,5 +1,4 @@
 import firebase from "firebase/app";
-import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/analytics';
 import 'firebase/firestore';
@@ -19,10 +18,11 @@ let firebaseConfig = {
 
 
 // Initialize Firebase
-export const project = firebase.initializeApp(firebaseConfig);
+const project = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 firebase.performance();
 
-export const paintingsRef = project.database().ref();
+export const firestore = project.firestore().collection('paintings');
 
+export const storageRef = project.storage().ref("paintings");
 export const auth = project.auth();

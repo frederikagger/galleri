@@ -5,12 +5,11 @@
                 img-alt="Image"
                 img-top
                 tag="article"
-                style="max-width: 320px;"
         >
-            <b-card-text class="navbar justify-content-between">
+            <!--<b-card-text class="navbar justify-content-between">
                 <p id="pris" class="navbar-text">Mål: {{painting.mål}}</p>
                 <p id="status" class="navbar-text">{{painting.solgt == 'true' ? "Solgt" : "Til salg"}}</p>
-            </b-card-text>
+            </b-card-text>-->
         </b-card>
     </div>
 </template>
@@ -36,7 +35,6 @@
         place-items: center;
         position: relative;
         place-items: center;
-        max-width: 320px;
-        max-height: 300px;
+
     }
 </style>

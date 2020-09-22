@@ -41,8 +41,6 @@
 </template>
 
 <script>
-    import {paintingsRef} from '@/firebase';
-
     export default {
         data() {
             return {
@@ -54,10 +52,10 @@
                 error: ''
             }
         },
-      methods: {
+     /* methods: {
           sendMessage() {
             if(this.form.navn!='' && this.form.besked!=''){
-              paintingsRef.child('beskeder').push(this.form).then(() => {
+                paintingsRef.child('beskeder').push(this.form).then(() => {
                 this.form.besked = '';
                 this.form.navn = '';
                 this.error = '';
@@ -73,7 +71,7 @@
               this.error = 'Udfyld venligst felterne';
             }
           }
-      }
+      }*/
     }
 </script>
 
