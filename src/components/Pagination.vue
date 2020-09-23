@@ -6,7 +6,7 @@
                     <router-link :to="'/galleri?page='+previousPage" v-if="currentPage != 1" class="page-link">Previous
                     </router-link>
                 </li>
-                <router-link :to="'/galleri/'+index"
+                <router-link :to="'/galleri?page='+index"
                              v-for="index in numberOfPages"
                              :key="index"
                              active-class="active"

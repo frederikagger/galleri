@@ -1,9 +1,8 @@
 <template>
-    <div>
         <div class="container">
-            <b-navbar class="headers my-md-3" toggleable="sm" sticky type="dark">
+            <b-navbar class="my-md-3" toggleable="sm" sticky type="dark">
               <b-navbar-nav>
-                <b-nav-item exact-active-class="active link" :to="'/'" >
+                <b-nav-item exact-active-class="active link" :to="{name: 'Home'}" >
                   GERD AGGER
                 </b-nav-item>
                 <b-navbar-brand>
@@ -18,22 +17,22 @@
                     </template>
                 </b-navbar-toggle>
                 <b-collapse id="navbar-toggle-collapse" is-nav>
-                    <b-navbar-nav class="mx-sm-auto">
-                        <b-nav-item exact-active-class="active link" :to="{name: 'Galleri', query: ({page: 1})}">
+                    <b-navbar-nav class="mx-auto">
+                        <b-nav-item class="mx-auto" exact-active-class="active link" :to="{name: 'Galleri', query: {page: Number(1)}}">
                           Galleri
                         </b-nav-item>
-                        <b-nav-item exact-active-class="active link" :to="{name: 'Om'}">Om mig</b-nav-item>
+                        <b-nav-item class="mx-auto" exact-active-class="active link" :to="{name: 'Om'}">
+                          Om mig
+                        </b-nav-item>
                     </b-navbar-nav>
                     <b-navbar-nav class="ml-md-5">
-                        <b-nav-item class="mx-sm-auto" exact-active-class="active link" :to="{name: 'Kontakt'}">
+                        <b-nav-item class="mx-auto" exact-active-class="active link" :to="{name: 'Kontakt'}">
                             Kontakt
                         </b-nav-item>
                     </b-navbar-nav>
                 </b-collapse>
             </b-navbar>
         </div>
-        <h1> {{this.$route.name}} </h1>
-    </div>
 </template>
 
 <script>
@@ -54,7 +53,7 @@ img {
 
 .link {
   place-items: center;
-  border-bottom: 1px solid white;
+  text-decoration: underline;
 }
 
 h1 {

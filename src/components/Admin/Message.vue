@@ -12,16 +12,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.msg:hover{
-  cursor: pointer;
-}
-.besked{
-  float: left;
-}
-.navn{
-  float: right;
-}
-
-</style>

@@ -21,6 +21,12 @@
     import {mapGetters} from 'vuex'
 
     export default {
+      metaInfo: {
+        link: [
+          { rel: 'stylesheet', href: '/css/chunk-6354211d.5ae086db.css'},
+          { rel: 'favicon', href: 'favicon.ico' }
+        ]
+      },
       computed: {
         ...mapGetters([
             'paintings'

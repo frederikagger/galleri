@@ -1,35 +1,20 @@
 <template>
-    <div>
-        <form class="mx-auto">
-            <h1 class="h1">Kontakt mig</h1>
+        <form class="form mx-auto">
+            <h1 class="h1 mb-3">Kontakt mig</h1>
             <br>
-            <b-form-group
-                    id="input-group-1"
-                    label="Navn:"
-                    label-for="input-1">
-                <b-form-input
-                        id="input-1"
-                        v-model="form.navn"
-                        type="text"
-                        required
-                        placeholder="Indtast dit navn.."
-                        :class="{'is-valid': this.form.navn!=''}"
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group id="input-group-2"
-                          label="Skriv din besked:"
-                          label-for="input-2">
-                <b-form-textarea
-                        id="input-2"
-                        v-model="form.besked"
-                        required
-                        placeholder="Besked.."
-                        rows="5"
-                        max-rows="5"
-                        :class="{'is-valid': this.form.besked!=''}"
-                ></b-form-textarea>
-            </b-form-group>
-            <button @click.prevent="sendMessage" class="btn btn-primary"> Send </button>
+          <div class="form-group">
+            <input class="form-control" id="input-1" v-model="form.navn" type="text" required placeholder="Indtast dit navn.."
+                   :class="{'is-valid': this.form.navn}">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" v-model="form.besked" required placeholder="Besked.." rows="5" max-rows="5"
+                :class="{'is-valid': this.form.besked}"
+            ></textarea>
+          </div>
+          <div style="text-align: center">
+            <button @click.prevent="sendMessage" class="btn-lg btn-primary"> Send </button>
+          </div>
+
             <div v-show="success" class="alert alert-success my-3">
               {{success}}
             </div>
@@ -37,7 +22,6 @@
             {{error}}
           </div>
         </form>
-    </div>
 </template>
 
 <script>

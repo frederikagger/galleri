@@ -57,5 +57,4 @@ export const store = new Vuex.Store({
             commit('CLEAR_TOKEN');
         },
     },
-    strict: process.env.NODE_ENV !== 'production',
 });

@@ -8,7 +8,7 @@ export const routes = [
     {
         path: '',
         component: lazyLoad('Home'),
-        name: '',
+        name: 'Home',
     },
     {
         path: '/galleri',

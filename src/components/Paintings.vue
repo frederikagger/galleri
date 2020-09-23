@@ -1,12 +1,12 @@
 <template>
         <div class="row">
             <app-painting v-for="painting in paintings" :key="painting.url" :painting="painting"/>
-            <app-pagination :current-page="this.page" :number-of-pages="this.pages"/>
+            <app-pagination :current-page="Number(this.page)" :number-of-pages="this.pages"/>
         </div>
 </template>
 
 <script>
-    import Painting1 from './Painting1';
+    import Painting from './Painting';
     import Pagination from './Pagination';
     import {mapGetters} from 'vuex'
 
@@ -15,10 +15,12 @@
         title: "Galleri"
       },
       props: {
-        page: Number
+        page: {
+          required: true
+        }
       },
       components: {
-            appPainting: Painting1,
+            appPainting: Painting,
             appPagination: Pagination,
         },
         computed: {

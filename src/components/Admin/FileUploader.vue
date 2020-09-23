@@ -1,8 +1,6 @@
 <template>
-  <div class="container">
-    <div class="d-flex flex-row justify-content-center">
-      <form>
-        <h2 class="headers">Upload billed</h2>
+      <form class="mx-auto">
+        <h1 class="h1 mb-5" style="text-align: center">Upload billeder</h1>
         <div class="form-group">
           <input type="file" id="fil" multiple
                  class="form-control-file" @change="fileSelected">
@@ -28,20 +26,20 @@
             <option value="false">Til salg</option>
           </select>
         </div> -->
-        <button type="submit" class="btn btn-primary my-3"
-                @click.prevent="uploadMultipleImages">Upload
-        </button>
+        <div style="text-align: center">
+          <button type="submit" class="btn-lg btn-primary"
+                  @click.prevent="uploadMultipleImages">Upload
+          </button>
+        </div>
         <br>
-        <div v-show="success" class="alert alert-success">
+        <div v-show="success" style="text-align: center" class="alert alert-success">
           {{ success }}
         </div>
         <br>
-        <div v-show="error" class="alert alert-danger">
+        <div v-show="error" style="text-align: center" class="alert alert-danger">
           {{ error }}
         </div>
       </form>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -59,7 +57,6 @@ export default {
       } else console.log('couldn\'t format the url!');
     },
     uploadMultipleImages() {
-      // eslint-disable-next-line no-unused-vars
       Object.entries(this.files).forEach(([key, value]) => {
         console.log(key, value);
         this.uploadImage(value);
@@ -104,13 +101,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-h2 {
-  padding-bottom: 30px;
-}
-
-.alert {
-  text-align: center;
-}
-</style>

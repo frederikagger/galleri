@@ -3,7 +3,6 @@ import 'firebase/storage';
 import 'firebase/analytics';
 import 'firebase/firestore';
 import 'firebase/auth';
-import 'firebase/performance';
 
 let firebaseConfig = {
     apiKey: "AIzaSyDw4WSi-LuwDyiGCc_qJvL9wCzOQgW78FI",
@@ -20,7 +19,6 @@ let firebaseConfig = {
 // Initialize Firebase
 const project = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-firebase.performance();
 
 export const firestore = project.firestore().collection('paintings');
 
