@@ -11,9 +11,10 @@ export const routes = [
         name: '',
     },
     {
-        path: '/galleri/:id',
+        path: '/galleri',
         component: lazyLoad('Paintings'),
         name: 'Galleri',
+        props: route => ({page: route.query.page})
     },
     {
         path: '/om',
