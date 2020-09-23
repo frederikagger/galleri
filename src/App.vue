@@ -2,12 +2,10 @@
   <div class="app">
     <app-header/>
     <div class="container my-5">
-      <div class="row">
         <transition name="bounceLeft" style="animation-duration: 0.100ms" mode="out-in">
           <router-view/>
         </transition>
       </div>
-    </div>
     <app-footer/>
   </div>
 </template>
@@ -43,8 +41,9 @@ export default {
 @media screen and (min-width: 1024px) {
   .app {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2Fbackground.webp?alt=media&token=dd82e3f0-5f41-4e01-a077-d30de2679842");
-    background-size: inherit;
+    /*background-size: inherit;*/
     background-attachment: fixed;
+    background-size: cover;
   }
 }
 
@@ -60,7 +59,7 @@ export default {
 @media screen and (max-width: 481px) {
   .app {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2FWebp.net-resizeimage%20(1).jpg?alt=media&token=edacdc01-1ecf-4ee6-9514-04e2f1b6cc4e");
-    background-size: cover;
+    background-position: top;
   }
 }
 

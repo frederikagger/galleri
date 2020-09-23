@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="text-white mx-auto">
         <p>
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -13,12 +13,13 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+      metaInfo: {
+        title: "Om mig"
+      }
+    }
 </script>
 
 <style scoped>
-    div {
-        color: white;
-        text-align: center;
-    }
+
 </style>

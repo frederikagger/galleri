@@ -25,6 +25,9 @@
     import {auth} from '@/firebase';
 
     export default {
+      metaInfo: {
+        title: "Admin side"
+      },
         computed: {
             loggedIn() {
                 return this.$store.getters.loggedIn;

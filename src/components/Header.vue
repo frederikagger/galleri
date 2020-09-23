@@ -19,7 +19,7 @@
                 </b-navbar-toggle>
                 <b-collapse id="navbar-toggle-collapse" is-nav>
                     <b-navbar-nav class="mx-sm-auto">
-                        <b-nav-item exact-active-class="active link" :to="{name: 'Galleri', params: {id: 1}}">
+                        <b-nav-item exact-active-class="active link" :to="{name: 'Galleri', query: ({page: 1})}">
                           Galleri
                         </b-nav-item>
                         <b-nav-item exact-active-class="active link" :to="{name: 'Om'}">Om mig</b-nav-item>

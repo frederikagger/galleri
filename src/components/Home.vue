@@ -1,10 +1,9 @@
 <template>
-    <div class="container my-5 text-white">
-      <link rel="stylesheet" type="text/css" href="glider.css">
-        <div class="my-md-5">
+    <div class="text-white">
+        <div class="my-5">
             <br>
             <br><br><br><br><br>
-            <h1> Gerd Agger <br> kunst galleri </h1>
+            <h1> Gerd Agger <br> kunst </h1>
         </div>
         <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

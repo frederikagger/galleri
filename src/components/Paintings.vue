@@ -1,7 +1,7 @@
 <template>
         <div class="row">
             <app-painting v-for="painting in paintings" :key="painting.url" :painting="painting"/>
-            <app-pagination :current-page="currentPage" :number-of-pages="pages"/>
+            <app-pagination :current-page="this.page" :number-of-pages="this.pages"/>
         </div>
 </template>
 
@@ -11,7 +11,12 @@
     import {mapGetters} from 'vuex'
 
     export default {
-
+      metaInfo: {
+        title: "Galleri"
+      },
+      props: {
+        page: Number
+      },
       components: {
             appPainting: Painting1,
             appPagination: Pagination,
@@ -24,14 +29,8 @@
                 return Math.ceil(this.paintings.length / this.pageSize);
             },
         },
-        watch: {
-            '$route'(to) {
-                this.currentPage = parseInt(to.params.id);
-            },
-        },
         data: function () {
             return {
-                currentPage: parseInt(this.$route.params.id),
                 pageSize: 9,
             }
         },

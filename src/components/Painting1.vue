@@ -1,7 +1,7 @@
 <template>
   <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <div class="card">
-      <img :src="this.painting.url" class="img-thumbnail" alt="Painting by Gerd Agger">
+    <div class="card my-5">
+      <img :src="this.painting.resizedURL" class="img-thumbnail" alt="Painting by Gerd Agger">
     </div>
   </div>
 </template>

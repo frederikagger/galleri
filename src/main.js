@@ -6,9 +6,13 @@ import {store} from "./store";
 import {BIconChevronBarUp, BIconChevronBarDown, BFormGroup, BFormInput, BFormTextarea, BModal, BCard, BCardText,
     BNavbar, BNavbarBrand, BNavbarToggle, BCollapse, BNavbarNav, BNavItem, BNavText, BCardHeader, BNav, BCardBody} from 'bootstrap-vue'
 import { ModalPlugin } from 'bootstrap-vue';
+import VueMeta from 'vue-meta'
+
 
 Vue.config.productionTip = true
 
+
+Vue.use(VueMeta)
 Vue.use(ModalPlugin)
 Vue.component('b-card-body', BCardBody)
 Vue.component('b-nav', BNav)

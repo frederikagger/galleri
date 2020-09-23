@@ -22,7 +22,4 @@
 </script>
 
 <style scoped>
-    div {
-        padding-top: 5%;
-    }
 </style>

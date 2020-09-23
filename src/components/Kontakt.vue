@@ -1,7 +1,7 @@
 <template>
-    <div class="container d-flex flex-row justify-content-center">
-        <form class="box">
-            <h1 class="headers"> Kontakt mig </h1>
+    <div>
+        <form class="mx-auto">
+            <h1 class="h1">Kontakt mig</h1>
             <br>
             <b-form-group
                     id="input-group-1"
@@ -42,6 +42,9 @@
 
 <script>
     export default {
+      metaInfo: {
+        title: "Kontakt mig"
+      },
         data() {
             return {
                 form: {
@@ -76,9 +79,8 @@
 </script>
 
 <style scoped>
-  .alert{
+  .alert, h1{
     text-align: center;
   }
-
 
 </style>

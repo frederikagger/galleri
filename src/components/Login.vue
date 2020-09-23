@@ -1,7 +1,6 @@
 <template>
-    <div class="mx-auto">
-        <div id="form">
-            <h1 class="mb-5 headers">Login</h1>
+        <div id="form" class="mx-auto">
+            <h1 class="mb-5 h1">Login</h1>
             <div class="form-group">
                 <b-form-input v-model="email" type="email"
                               placeholder="Indtast email">
@@ -17,13 +16,15 @@
                 {{error}}
             </div>
         </div>
-    </div>
 </template>
 
 <script>
     import {auth} from "../firebase";
 
     export default {
+      metaInfo: {
+        title: "Login side"
+      },
         data() {
             return {
                 email: '',
