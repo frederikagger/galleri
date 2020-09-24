@@ -12,10 +12,11 @@
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
     "firebase": "^7.21.0",
+    "swiper": "^6.2.0",
     "vue": "^2.6.12",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.4.3",
-    "vue-template-compiler": "^2.6.12",
     "vuex": "^3.5.1",
     "vuexfire": "^3.2.4"
   },

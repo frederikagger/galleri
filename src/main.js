@@ -7,10 +7,13 @@ import {BIconChevronBarUp, BIconChevronBarDown,
     BNavbar, BNavbarBrand, BNavbarToggle, BCollapse, BNavbarNav, BNavItem, BNavText, BNav} from 'bootstrap-vue'
 import { ModalPlugin } from 'bootstrap-vue';
 import VueMeta from 'vue-meta'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
 
 Vue.config.productionTip = true
-
+Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 Vue.use(VueMeta)
+Vue.use(VueRouter)
 Vue.use(ModalPlugin)
 Vue.component('b-nav', BNav)
 Vue.component('b-nav-text', BNavText)
@@ -22,11 +25,6 @@ Vue.component('b-navbar-brand', BNavbarBrand)
 Vue.component('b-navbar', BNavbar)
 Vue.component('b-icon-chevron-bar-up', BIconChevronBarUp)
 Vue.component('b-icon-chevron-bar-down', BIconChevronBarDown)
-Vue.use(VueRouter)
-
-Vue.filter('currency', (value) => {
-    return value.toLocaleString() + ' kr.';
-});
 
 const router = new VueRouter({
     mode: 'history',

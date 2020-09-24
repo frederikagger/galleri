@@ -10,6 +10,18 @@ export const store = new Vuex.Store({
         loggedIn: false,
         token: '',
         paintings: [],
+        options: {
+            type        : 'slide',
+            rewind      : true,
+            width       : 800,
+            gap         : '1rem',
+            pagination  : false,
+            fixedWidth  : 110,
+            fixedHeight : 70,
+            cover       : true,
+            focus       : 'center',
+            isNavigation: true,
+        }
     },
     getters: {
         loggedIn(state) {
@@ -24,6 +36,9 @@ export const store = new Vuex.Store({
         paintingsSet(state) {
             return state.paintingsSet;
         },
+        options(state){
+            return state.options;
+        }
     },
     mutations: {
         ...vuexfireMutations,

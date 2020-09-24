@@ -34,7 +34,6 @@ export default {
   color: black;
   background-repeat: no-repeat;
   background-position: left bottom;
-  min-height: 800px;
 }
 
 /* Desktop */
