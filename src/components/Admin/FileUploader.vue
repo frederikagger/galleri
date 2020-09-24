@@ -1,5 +1,5 @@
 <template>
-      <form class="mx-auto">
+      <form class="mx-auto form">
         <h1 class="h1 mb-5" style="text-align: center">Upload billeder</h1>
         <div class="form-group">
           <input type="file" id="fil" multiple

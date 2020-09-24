@@ -13,7 +13,7 @@
             <li><router-link :to="{name: 'Home'}">Forside</router-link></li>
             <li><router-link :to="{name: 'Galleri', query: {page: Number(1)}}">Galleri</router-link></li>
             <li><router-link :to="{name: 'Om'}">Om mig</router-link></li>
-            <li><router-link :to="{name: 'Kontakt'}">Kontakt mig</router-link></li>
+            <li><router-link :to="{name: 'Kontakt'}">Kontakt</router-link></li>
             <li><router-link :to="{name: 'Login'}">Admin</router-link></li>
           </ul>
         </div>
