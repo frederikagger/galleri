@@ -1,7 +1,7 @@
 # galleri
 
-The purpose with this project is to make a nice gallery with vue
-so people can view paintings in a nice modern way. 
+This project is a personal website which intend is to display paintings. 
 
-![alt text](page1.PNG)
+The project was a learning opportunity for me to learn vue.js.
 
+This project is live [here](https://www.gerdagger-kunst.dk)
