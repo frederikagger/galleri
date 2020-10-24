@@ -4,7 +4,7 @@ import 'firebase/analytics';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-let firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyDw4WSi-LuwDyiGCc_qJvL9wCzOQgW78FI",
     authDomain: "gerdagger-72890.firebaseapp.com",
     databaseURL: "https://gerdagger-72890.firebaseio.com",
@@ -21,6 +21,6 @@ const project = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 export const firestore = project.firestore().collection('paintings');
-
+export const messagesRef = project.firestore().collection('messages');
 export const storageRef = project.storage().ref("paintings");
 export const auth = project.auth();

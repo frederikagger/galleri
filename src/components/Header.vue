@@ -3,10 +3,10 @@
     <b-navbar class="my-md-3" toggleable="sm" sticky type="dark">
       <b-navbar-nav>
         <b-nav-item exact-active-class="active link" :to="{name: 'Home'}">
-          GERD AGGER
+          Gerd Agger kunst
         </b-nav-item>
         <b-navbar-brand>
-          <img
+          <img class="logo"
               src="https://firebasestorage.googleapis.com/v0/b/gerdagger-72890.appspot.com/o/app%2Flogo.svg?alt=media&token=16fd0dd3-d88c-4e51-b8ec-50f9f9ae9289"
               alt="logo">
         </b-navbar-brand>
@@ -48,14 +48,14 @@ export default {
 </script>
 
 <style scoped>
-img {
+.logo {
   height: 25px;
   width: 25px;
 }
 
 .link {
   place-items: center;
-  text-decoration: underline;
+  border-bottom: 1px solid white;
 }
 
 h1 {

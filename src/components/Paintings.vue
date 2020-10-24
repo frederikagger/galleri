@@ -1,42 +1,42 @@
 <template>
-        <div class="row">
-            <app-painting v-for="painting in paintings" :key="painting.url" :painting="painting"/>
-            <app-pagination :current-page="Number(this.page)" :number-of-pages="this.pages"/>
-        </div>
+  <div>
+    <div class="row">
+      <app-painting v-for="index in pageSize*this.$route.query.page" :key="index" :painting="paintings[index]"/>
+    </div>
+    <app-pagination/>
+  </div>
 </template>
 
 <script>
-    import Painting from './Painting';
-    import Pagination from './Pagination';
-    import {mapGetters} from 'vuex'
+import Painting from './Painting';
+import Pagination from './Pagination';
+import {mapGetters} from 'vuex';
 
-    export default {
-      metaInfo: {
-        title: "Galleri"
-      },
-      props: {
-        page: {
-          required: true
-        }
-      },
-      components: {
-            appPainting: Painting,
-            appPagination: Pagination,
-        },
-        computed: {
-            ...mapGetters([
-              'paintings',
-            ]),
-            pages() {
-                return Math.ceil(this.paintings.length / this.pageSize);
-            },
-        },
-        data: function () {
-            return {
-                pageSize: 9,
-            }
-        },
+export default {
+  metaInfo: {
+    title: 'Galleri',
+  },
+  data() {
+    return {
+      index: 1,
+    };
+  },
+  components: {
+    appPainting: Painting,
+    appPagination: Pagination,
+  },
+  computed: {
+    ...mapGetters([
+      'paintings',
+      'pageSize',
+    ]),
+  },
+  watch: {
+    '$route'() {
+      this.index = this.index * Number(this.$route.query.page)
     }
+  }
+}
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
   <swiper ref="mySwiper" :options="swiperOption">
     <swiper-slide v-for="painting in paintings" :key="painting.url">
-      <img :src="painting.resizedURL">
+      <img class="image" :src="painting.url">
     </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
     <div class="swiper-button-prev" @click="swiper.slidePrev(200)" slot="button-prev"></div>
@@ -16,10 +16,11 @@ export default {
   name: 'carrousel',
   data() {
     return {
+      id: '',
       swiperOption: {
-        spaceBetween: 10,
-        centeredSlides: true,
-        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: false,
+        slidesPerView: 1,
         loop: true,
         autoplay: {
           delay: 2000,
@@ -32,25 +33,7 @@ export default {
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
-        },
-         breakpoints: {
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 30
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 30
-            },
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 20
-            },
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 10
-            }
-          }
+        }
       },
     }
   },
@@ -62,31 +45,22 @@ export default {
       return this.$refs.mySwiper.$swiper
     }
   },
+  watch: {
+    '$route' () {
+      this.id = this.$route.params.id
+    }
+  },
   mounted() {
-    this.swiper.slideTo(1, 1000, false)
+    this.swiper.slideTo(this.id, 1000, false)
   }
 }
 </script>
 
 <style scoped>
-img {
+.image{
+  margin: 0 auto;
+  max-height: 100vh;
   max-width: auto;
-  max-height: 100%;
 }
-
- .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 300px;
-      height: 300px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 20px * 2;
-    
-      background-position: center;
-      background-size: cover;
-      color: white;
-    }
 
 </style>

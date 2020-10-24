@@ -1,39 +1,33 @@
 <template>
   <div>
     <div class="my-5 text-white">
-      <br>
-      <br><br><br><br><br>
-      <h1> Gerd Agger <br> kunst </h1>
+      <br />
+      <br /><br /><br /><br /><br />
+      <h1 class="home">
+        Gerd Agger <br />
+        kunst
+      </h1>
     </div>
-    <div class="text-white my-5">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-      nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-      anim id est laborum.
-    </div>
-      <app-slider/>
+    <span class="headline-2 my-5">
+      Abstrakt kunst galleri
+    </span>
+    <app-slider />
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
-import Slider from '@/components/Slider';
+import { mapGetters } from "vuex";
+import Slider from "@/components/Slider";
 
 export default {
   metaInfo: {
-    link: [
-      {rel: 'stylesheet', href: '/css/chunk-6354211d.5ae086db.css'},
-      {rel: 'favicon', href: 'favicon.ico'},
-    ],
+    title: "Startside",
   },
   components: {
     appSlider: Slider,
   },
   computed: {
-    ...mapGetters([
-      'paintings',
-    ]),
+    ...mapGetters(["paintings"]),
     promotedPaintings: function() {
       return this.paintings.slice(0, 3);
     },
@@ -42,14 +36,10 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 120px;
-  font-family: 'Playfair Display', serif;
-}
-
-@media only screen and (max-width: 767px) {
-  h1 {
-    font-size: 100px;
-  }
-}
+.headline-2 {
+      font-size: 2rem;
+      font-weight: 200;
+      color: white;
+      letter-spacing: 0.5rem;
+    }
 </style>

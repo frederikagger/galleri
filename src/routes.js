@@ -6,7 +6,7 @@ function lazyLoad(component) {
 
 export const routes = [
     {
-        path: '',
+        path: '/',
         component: lazyLoad('Home'),
         name: 'Home',
     },
@@ -15,6 +15,10 @@ export const routes = [
         component: lazyLoad('Paintings'),
         name: 'Galleri',
         props: route => ({page: route.query.page})
+    },
+    {
+        path: '/maleri/:id',
+        component: lazyLoad('SliderBig'),
     },
     {
         path: '/om',

@@ -53,7 +53,7 @@ export default {
     },
     formatResizedURL(file) {
       if (file.type == 'image/jpeg') {
-        return 'resized/' + file.name.slice(0, -4) + '_320x300.jpg';
+        return 'resized' + decodeURI('/') + file.name.slice(0, -4) + '_320x300.jpg';
       } else console.log('couldn\'t format the url!');
     },
     uploadMultipleImages() {
